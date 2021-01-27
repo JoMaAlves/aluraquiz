@@ -4,12 +4,14 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import db from '../db.json';
+import Input from '../src/components/Input';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
+import Button from '../src/components/Button';
+import QuizLogo from '../src/components/QuizLogo';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizContainer from '../src/components/QuizContainer';
 import QuizBackground from '../src/components/QuizBackground';
-import QuizLogo from '../src/components/QuizLogo';
 
 export default function QuizPage() {
   return (
@@ -18,12 +20,32 @@ export default function QuizPage() {
         <QuizLogo />
         <Widget>
           <Widget.Header>
-            <h1>Pergunta 1 de 5</h1>
+            {/* <BackLinkArrow href="/" /> */}
+            <h3>
+              Pergunta
+              1
+              de
+              {` ${db.questions.length}`}
+            </h3>
           </Widget.Header>
-          <img src={db.bg} width="100%" alt="Question representation" />
+
+          <img
+            src={db.bg}
+            style={{
+              width: '100%',
+              height: 150,
+              objectFit: 'cover',
+            }}
+            alt="Question representation"
+          />
+
           <Widget.Content>
-            <h1>Lorem ipsum</h1>
-            <p>lorem ipsum dolor sit amet...</p>
+            <h2>
+              Titulo
+            </h2>
+            <p>
+              Descrição
+            </p>
             <form onSubmit="">
               <button type="submit">Lorem ipsum</button>
               <button type="submit">Lorem ipsum</button>

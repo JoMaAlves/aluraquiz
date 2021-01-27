@@ -4,12 +4,14 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import db from '../db.json';
+import Input from '../src/components/Input';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
+import Button from '../src/components/Button';
+import QuizLogo from '../src/components/QuizLogo';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizContainer from '../src/components/QuizContainer';
 import QuizBackground from '../src/components/QuizBackground';
-import QuizLogo from '../src/components/QuizLogo';
 
 /* const BackgroundImage = styled.div`
   background-image: url(${db.bg});
@@ -56,15 +58,18 @@ export default function Home() {
           </Widget.Header>
           <Widget.Content>
             <form onSubmit={handleSubmit}>
-              <input
-                type="text"
+              <Input
+                name="nomeDoUsuario"
                 placeholder="Diz ai seu nome"
                 onChange={handleChange}
+                value={name}
               />
-              <button type="submit" disabled={name.length === 0}>
-                Jogar
-                {name}
-              </button>
+              <Button
+                type="submit"
+                disabled={name.length === 0}
+              >
+                {`Jogar ${name}`}
+              </Button>
             </form>
           </Widget.Content>
         </Widget>
